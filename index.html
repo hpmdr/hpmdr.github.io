@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>虎皮猫的主页</title>
-  </head>
-  <body>
-   这里是虎皮猫的主页
-  </body>
+</head>
+<body>
+这里是虎皮猫的主页
+</body>
+<script>
+    var work = new Worker("./work/demo_work.js")
+    work.onmessage = function (event) {
+        if (event.data > 10) {
+            document.write("后台程序已完成");
+            work.terminate()
+        } else {
+            document.write("正在执行后台程序操作：" + event.data + "0%<br/>")
+        }
+    }
+</script>
 </html>

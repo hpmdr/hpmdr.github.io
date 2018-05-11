@@ -37,6 +37,10 @@ f(() => {
 });
 var test = function () {
     console.log("---------------");
-    console.log(true+undefined)
+    var arr = [1,2,3,4,5,6,7];
+    arr.forEach((v,i,array)=>{
+        console.log("v:"+v);
+        console.log("i:"+i);
+    })
 }
 test()

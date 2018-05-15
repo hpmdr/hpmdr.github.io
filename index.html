@@ -2,11 +2,30 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maxsmum-scale=1.0, user-scalable=no"/>
     <title>虎皮猫的主页</title>
+    <style>
+        @media screen and (max-width: 720px) {
+            html {
+                font-size: 10px;
+            }
+        }
+
+        @media screen and (max-width: 1080px) and(min-width: 721px) {
+            html {
+                font-size: 16px;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
-这里是虎皮猫的主页
+<p>
+    这里是虎皮猫的主页
+</p>
 </body>
 <script src="./lib/jquery-3.3.1.js"></script>
 <script src="./js/utils.js"></script>
@@ -30,7 +49,7 @@
             }
         }
         request.open("POST", "http://im.51julebu.com:8080/", true);
-        request.setRequestHeader("Content-Type","application/json");
+        request.setRequestHeader("Content-Type", "application/json");
         request.send("test")
     })
 </script>

@@ -51,6 +51,12 @@
         request.open("POST", "http://im.51julebu.com:8080/", true);
         request.setRequestHeader("Content-Type", "application/json");
         request.send("test")
+        var p = document.createElement("p");
+        p.innerText = "window.screen.width:" + window.screen.width;
+        document.getElementsByTagName("body")[0].appendChild(p)
+        var p1 = document.createElement("p");
+        p1.innerText = "document.documentElement.clientWidth:" + document.documentElement.clientWidth;
+        document.getElementsByTagName("body")[0].appendChild(p1);
     })
 </script>
 </html>

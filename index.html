@@ -5,35 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maxsmum-scale=1.0, user-scalable=no"/>
     <title>虎皮猫的主页</title>
     <style>
-        .test {
-            position: fixed;
-            width: 100px;
-            height: 100px;
-            border-width: medium;
-            border-color: blueviolet;
-            border-style: double;
-        }
 
-        p {
-            font-size: 1rem;
-        }
-
-        #btn {
-            float: right;
-        }
     </style>
 </head>
 <body>
-<form method="post" action="http://im.51julebu.com/insruance/insuranceList.do">
-    <input type="text" placeholder="请输入">
-    <input type="submit">
-</form>
+<h1>前端常用知识收集</h1>
+<ul>
+    <li><a href="./pages/basic_concept.html">前端基本概念</a></li>
+    <li><a href="./pages/the_way_to_css_center.html">搞懂 CSS 水平居中与垂直居中的16个方法</a></li>
+</ul>
 </body>
 <script src="./lib/jquery-3.3.1.js"></script>
 <script src="./js/utils.js"></script>
 <script>
 
-    function htmlSize() {
+    function htmlSize() {//根据屏幕设置字体大小
         var screenWidth = document.documentElement.clientWidth;
         var fontSize = screenWidth / 20;
         var html = document.getElementsByTagName("html")[0];
@@ -41,7 +27,7 @@
     };
 
     ready(function () {
-        htmlSize()
+        //htmlSize()
         console.log("加载完成")
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {

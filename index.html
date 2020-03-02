@@ -18,28 +18,44 @@
 <script src="./lib/jquery-3.3.1.js"></script>
 <script src="./js/utils.js"></script>
 <script>
+    'use strict';
 
-    function htmlSize() {//根据屏幕设置字体大小
-        var screenWidth = document.documentElement.clientWidth;
-        var fontSize = screenWidth / 20;
-        var html = document.getElementsByTagName("html")[0];
-        html.style.fontSize = fontSize + "px";
-    };
+    /*    function htmlSize() {//根据屏幕设置字体大小
+            var screenWidth = document.documentElement.clientWidth;
+            var fontSize = screenWidth / 20;
+            var html = document.getElementsByTagName("html")[0];
+            html.style.fontSize = fontSize + "px";
+        };
 
-    ready(function () {
-        //htmlSize()
-        console.log("加载完成")
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-            if (request.readyState == 4) {
-                console.log(request.response)
+        ready(function () {
+            //htmlSize()
+            console.log("加载完成")
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    console.log(request.response)
+                }
             }
-        }
-        request.open("POST", "http://im.51julebu.com:8080/", true);
-        request.setRequestHeader("Content-Type", "application/json");
-        request.send("test")
-        var p = document.getElementsByClassName("pc")[0];
-        console.log(p)
-    })
+            request.open("POST", "http://im.51julebu.com:8080/", true);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.send("test")
+            var p = document.getElementsByClassName("pc")[0];
+            console.log(p)
+        })*/
+
+
+    function Student() {
+        this.a = 1;
+        return this;
+    }
+
+    Student.prototype.toString = function () {
+        let res = 'Object Student';
+        return res;
+    };
+    let o = new Student();
+    console.log(Object.defineProperty(o, 'a', {writable: false, configurable: false, enumerable: false}));
+    o.a = 2;
+    console.log(o.toString());
 </script>
 </html>

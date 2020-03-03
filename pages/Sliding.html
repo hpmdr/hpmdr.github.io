@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>Sliding learn</title>
@@ -29,7 +29,7 @@
 </div>
 <script type="text/javascript">
 
-    //图片的大小为280*140
+    //图片的大小不固定
     window.onload = function () {
         //获取容器和四个图片标签
         let container = document.getElementById('container');
@@ -41,6 +41,7 @@
         container.style.height = imgHeight + 'px';
         setImgs(0);
 
+        //添加鼠标over事件
         for (let i = 0, len = imgs.length; i < len; i++) {
             let img = imgs[i];
             img.onmouseover = function () {
@@ -48,7 +49,10 @@
             };
         }
 
-
+        /**
+         * 设置图片显示效果
+         * @param index
+         */
         function setImgs(index) {
             for (let i = 1, len = imgs.length; i < len; i++) {
                 let img = imgs[i];

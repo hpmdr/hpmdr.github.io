@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sliding learn</title>
+
+    <style>
+        #container {
+            border-bottom: 2px dotted gray;
+            border-right: 2px dotted gray;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        #container img {
+            position: absolute;
+            border-left: 2px dotted gray;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <img src="https://img2.mukewang.com/529dc3380001379906000338.jpg" alt="前端" title="前端"/>
+    <img src="https://img1.mukewang.com/57035ff200014b8a06000338.jpg" alt="java" title="java"/>
+    <img src="https://img2.mukewang.com/540e57300001d6d906000338.jpg" alt="python" title="python"/>
+    <img src="https://img2.mukewang.com/574669dc0001993606000338.jpg" alt="c++" title="c++"/>
+</div>
+<script type="text/javascript">
+
+    //图片的大小为280*140
+    window.onload = function () {
+        //获取容器和四个图片标签
+        let container = document.getElementById('container');
+        let imgs = container.getElementsByTagName('img');
+
+        const imgWidth = imgs[0].offsetWidth, imgHeight = imgs[0].offsetHeight;
+        //设置容器的宽高
+        container.style.width = (imgWidth + imgWidth * 0.36 * (imgs.length - 1)) + 'px';
+        container.style.height = imgHeight + 'px';
+        setImgs(0);
+
+        for (let i = 0, len = imgs.length; i < len; i++) {
+            let img = imgs[i];
+            img.onmouseover = function () {
+                setImgs(i)
+            };
+        }
+
+
+        function setImgs(index) {
+            for (let i = 1, len = imgs.length; i < len; i++) {
+                let img = imgs[i];
+                if (i > index) {
+                    img.style.left = imgWidth + (imgWidth * 0.36) * (i - 1) + 'px';
+                } else if (i <= index) {
+                    img.style.left = (imgWidth * 0.36) * i + 'px';
+                }
+            }
+        }
+    };
+</script>
+</body>
+</html>

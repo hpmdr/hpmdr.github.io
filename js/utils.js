@@ -1,5 +1,5 @@
 /**
- * 文档夹在完成事件
+ * 文档加载完成事件
  * @param fn
  */
 var ready = function f(fn) {
@@ -9,5 +9,6 @@ var ready = function f(fn) {
             fn();
         }, false)
     } else {
+        console.error('浏览器不支持监听document 事件');
     }
-}
+};

@@ -9,57 +9,12 @@
     </style>
 </head>
 <body>
-<h1>前端常用知识收集</h1>
-<ul>
-    <li><a href="./pages/basic_concept.html">前端基本概念</a></li>
-    <li><a href="./pages/the_way_to_css_center.html">搞懂 CSS 水平居中与垂直居中的16个方法</a></li>
-    <li><a href="pages/Sliding.html">Sliding作业</a></li>
-</ul>
 
-<div id="div1" value="1"></div>
-<label for="i1">input</label><input type="number" id="i1" value="2">
+<h1 id="title"></h1>
+
 </body>
-<script src="./lib/jquery-3.3.1.js"></script>
-<script src="./js/utils.js"></script>
+<script src="./dist/main.js"></script>
 <script>
-    // 'use strict';
-
-    /*    function htmlSize() {//根据屏幕设置字体大小
-            var screenWidth = document.documentElement.clientWidth;
-            var fontSize = screenWidth / 20;
-            var html = document.getElementsByTagName("html")[0];
-            html.style.fontSize = fontSize + "px";
-        };
-
-        ready(function () {
-            //htmlSize()
-            console.log("加载完成")
-            var request = new XMLHttpRequest();
-            request.onreadystatechange = function () {
-                if (request.readyState == 4) {
-                    console.log(request.response)
-                }
-            }
-            request.open("POST", "http://im.51julebu.com:8080/", true);
-            request.setRequestHeader("Content-Type", "application/json");
-            request.send("test")
-            var p = document.getElementsByClassName("pc")[0];
-            console.log(p)
-        })*/
-
-    let div1 = document.getElementById('div1');
-    console.log(div1.nodeType, div1.nodeName, div1.nodeValue);
-    let attNode = div1.attributes[0];
-    console.log(attNode.name, attNode.value);
-
-    let i1 = document.getElementById('i1');
-    let i1Att = i1.attributes;
-    for (let i = 0, len = i1Att.length; i < len; i++) {
-        let att = i1Att[i];
-        if (att.nodeName == 'value') {
-            console.log('input 的value为：' + att.nodeValue);
-        }
-    }
 
 </script>
 </html>

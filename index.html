@@ -5,12 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maxsmum-scale=1.0, user-scalable=no"/>
     <title>虎皮猫的主页</title>
 </head>
-<body>
+<style>
+    body {
+        padding: 0 30px;
+    }
 
-<h4 id="title">webpack</h4>
-<!--kwfoijfjajfsalskd-->
-<div id="box"></div>
-<div id="box1"></div>
-<img src="./src/imgs/20200316_100056_417.png" alt="图片加载失败" title="测试图片">
+    ul {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul li {
+        list-style: none;
+        float: left;
+        margin-right: 10px;
+        font-size: 17px;
+    }
+
+    ul li:hover {
+        font-weight: bold;
+    }
+
+    article {
+        float: left;
+        width: 68%;
+        padding-right: 2%;
+    }
+
+    aside {
+        float: right;
+        width: 30%;
+        margin-top: 30px;
+    }
+
+</style>
+<body>
+<header>
+    <h1>这里是头部</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="https://qq/com">新闻</a></li>
+        <li><a href="https://qq/com">图片</a></li>
+        <li><a href="https://qq/com">问答</a></li>
+        <li><a href="https://qq/com">军事</a></li>
+        <li><a href="https://qq/com">体育</a></li>
+        <li><a href="https://qq/com">科技</a></li>
+        <li><a href="https://qq/com">娱乐</a></li>
+        <li><a href="https://qq/com">财经</a></li>
+        <li><a href="https://qq/com">历史</a></li>
+    </ul>
+</nav>
+<div style="overflow: hidden">
+    <article>
+        <h2>文章标题</h2>
+        <section>
+            <h3>第一章节小标题</h3>
+            <p>
+                解决方法：
+                1、给父元素也添加float。这样让父元素与子元素一起脱离文档流浮动起来，保证子元素在父元素内，这样父元素就能自适应子元素的高度，但是此方法有一弊端，一定会影响父元素之后的元素排列，甚至影响布局。
+                2、给父元素一个固定高度，此方法适用于子元素高度已知并且固定的情况。
+                3、添加一个块级元素，并给此元素设置clear:both;清除浮动。在很早之前用的就是这种解决办法，新建一个空的div，为这个div设置clear：both；这样无疑是增加了无意义的标签，一个大型页面中，这种标签太多是不好的。
+                4、给父元素添加 overflow：hidden；【后有详解】
+                5、通过伪类::after清除浮动 【后有详解】
+
+                overflow:hidden;
+                隐藏溢出，当内容超过其父元素时，可以使用该属性和值将溢出的部分裁剪掉，使页面更加美观
+                清除浮动，当子元素浮动时，给父元素添加overflow：hidden，按照它的第一个特性，应该将子元素超出的部分截掉，但是因为子元素有浮动，无法裁剪，所有只能由父元素增加高度去包裹住子元素，使得父元素拥有了高度，而这个高度是跟随子元素自适应的高度，这样就把浮动的子元素包含在父元素内了。
+                ————————————————
+                版权声明：本文为CSDN博主「chris_z_0622」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+                原文链接：https://blog.csdn.net/chris_z_0622/article/details/65442975
+            </p>
+        </section>
+        <section>
+            <h3>第二章节小标题</h3>
+            <p>
+                解决方法：
+                1、给父元素也添加float。这样让父元素与子元素一起脱离文档流浮动起来，保证子元素在父元素内，这样父元素就能自适应子元素的高度，但是此方法有一弊端，一定会影响父元素之后的元素排列，甚至影响布局。
+                2、给父元素一个固定高度，此方法适用于子元素高度已知并且固定的情况。
+                3、添加一个块级元素，并给此元素设置clear:both;清除浮动。在很早之前用的就是这种解决办法，新建一个空的div，为这个div设置clear：both；这样无疑是增加了无意义的标签，一个大型页面中，这种标签太多是不好的。
+                4、给父元素添加 overflow：hidden；【后有详解】
+                5、通过伪类::after清除浮动 【后有详解】
+
+                overflow:hidden;
+                隐藏溢出，当内容超过其父元素时，可以使用该属性和值将溢出的部分裁剪掉，使页面更加美观
+                清除浮动，当子元素浮动时，给父元素添加overflow：hidden，按照它的第一个特性，应该将子元素超出的部分截掉，但是因为子元素有浮动，无法裁剪，所有只能由父元素增加高度去包裹住子元素，使得父元素拥有了高度，而这个高度是跟随子元素自适应的高度，这样就把浮动的子元素包含在父元素内了。
+                ————————————————
+                版权声明：本文为CSDN博主「chris_z_0622」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+                原文链接：https://blog.csdn.net/chris_z_0622/article/details/65442975
+            </p>
+        </section>
+    </article>
+
+    <aside>
+        <img src="//img1.gtimg.com/ninja/2/2020/03/ninja158451983232574.jpg" alt="测试图片加载失败" title="测试图片">
+        <ul>
+            <li><a>第1个侧边新闻</a></li>
+            <li><a>第2个侧边新闻</a></li>
+            <li><a>第3个侧边新闻</a></li>
+            <li><a>第4个侧边新闻</a></li>
+            <li><a>第5个侧边新闻</a></li>
+            <li><a>第6个侧边新闻</a></li>
+            <li><a>第7个侧边新闻</a></li>
+            <li><a>第8个侧边新闻</a></li>
+        </ul>
+    </aside>
+</div>
+<footer></footer>
+
 </body>
 </html>

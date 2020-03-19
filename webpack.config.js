@@ -2,6 +2,12 @@
 * webpack配置 提要
 * 样式处理、提取、压缩  html模板、压缩 js压缩 图片 其他资源
 * 各种插件、loader，可以去npmjs.com查看其readme，用法
+*
+* 输出文件可以使用hash值来命名文件，避免缓存，hash值的获取方法为[hash:位数]
+* hash值又三种，第一种是[hash]，是整个项目的hash
+* 第二种是[chunkhash]，是根据chunk来分别打包的hash
+* 第三种是[contenthash]，是源文件的hash
+*
 * */
 
 const {resolve} = require('path');
@@ -15,7 +21,8 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 const PostcssPresetEnv = require('postcss-preset-env');
 
 // 复用CSS loader
-const CommonCssLoader = [MiniCssExtractPlugin.loader,
+const CommonCssLoader = [
+    MiniCssExtractPlugin.loader,
     'css-loader',
     {
         loader: 'postcss-loader',
@@ -27,8 +34,8 @@ const CommonCssLoader = [MiniCssExtractPlugin.loader,
 
 module.exports = {
     entry: './src/app.js',
-    output: {
-        filename: 'app.js',
+    output: {// contenthash是当前代码的hash值
+        filename: 'js/[name].[hash:7].js',
         path: resolve(__dirname, 'dist'),
     },
 
@@ -51,7 +58,7 @@ module.exports = {
                 options: {
                     esModule: false,
                     limit: 8192,
-                    name: 'imgs/[name].[hash:7].[ext]',
+                    name: 'imgs/[name].[contenthash:7].[ext]',
                 },
             },
             // 处理html文件中引用的静态资源
@@ -66,6 +73,7 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     presets: ['@babel/preset-env'],
+                    cacheDirectory: true, // 开启babel缓存，不用每次都编译所有js文件
                 },
             },
             // 使用 eslint-loader进行语法检查
@@ -92,7 +100,7 @@ module.exports = {
             },
         }),
         new MiniCssExtractPlugin({
-            filename: 'app.css',
+            filename: 'css/app.[contenthash:7].css',
         }),
         new OptimizeCssAssetsWebpackPlugin(),
     ],
@@ -100,7 +108,9 @@ module.exports = {
     // 开发服务器配置
     devServer: {
         contentBase: resolve('dist'),
-        conpress: true,
+        compress: true,
         port: 8888,
+        open: false,
     },
+    devtool: 'eval-cheap-module-source-map',
 };
